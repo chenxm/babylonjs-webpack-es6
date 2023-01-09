@@ -1,5 +1,6 @@
-import type { Engine } from "@babylonjs/core/Engines/engine";
-import type { Scene } from "@babylonjs/core/scene";
+type Engine = import("@babylonjs/core/Engines/engine").Engine;
+type Scene = import("@babylonjs/core/scene").Scene;
+import * as logic from "my-logic";
 
 export interface CreateSceneClass {
     createScene: (engine: Engine, canvas: HTMLCanvasElement) => Promise<Scene>;
@@ -11,8 +12,13 @@ export interface CreateSceneModule {
 }
 
 export const getSceneModuleWithName = (
-    name = 'defaultWithTexture'
+    // name = 'defaultWithTexture'
+    // name = 'navigationMeshRecast'
+    // name = 'loadModelAndEnv'
+     name = 'physicsWithAmmo'
+
 ): Promise<CreateSceneClass> => {
+    console.log("============ " + logic.Title);
     return import('./scenes/' + name).then((module: CreateSceneModule)=> {
         return module.default;
     });
