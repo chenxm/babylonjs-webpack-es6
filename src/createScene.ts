@@ -17,7 +17,8 @@ export const getSceneModuleWithName = (
     // name = 'loadModelAndEnv'
     // name = 'physicsWithAmmo'
     // name = 'testMeshes'
-    name = 'pirate'
+    // name = 'pirateFort'
+    name = 'abbitt'
 
 ): Promise<CreateSceneClass> => {
     console.log("============ " + logic.Title);
