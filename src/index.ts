@@ -7,6 +7,15 @@ const getModuleToLoad = (): string | undefined =>
     location.search.split("scene=")[1]?.split("&")[0];
 
 export const babylonInit = async (): Promise<void> => {
+
+    const _values = await Promise.all([
+        import("@babylonjs/core/Debug/debugLayer"),
+        import("@babylonjs/inspector"),
+    ]);
+    console.log(_values);
+
+
+
     // get the module to load
     const moduleName = getModuleToLoad();
     const createSceneModule = await getSceneModuleWithName(moduleName);
@@ -49,6 +58,16 @@ export const babylonInit = async (): Promise<void> => {
     window.addEventListener("resize", function () {
         engine.resize();
     });
+
+    scene.debugLayer.show({
+        handleResize: true,
+        // overlay: true,
+        // embedMode: true,
+        globalRoot: document.getElementById("#root") || undefined,
+    });
+
+
+
 };
 
 babylonInit().then(() => {

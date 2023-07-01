@@ -19,23 +19,8 @@ export class PirateScene implements CreateSceneClass {
         canvas: HTMLCanvasElement
     ): Promise<BABYLON.Scene> => {
 
-        const _values = await Promise.all([
-            import("@babylonjs/core/Debug/debugLayer"),
-            import("@babylonjs/inspector"),
-        ]);
-        console.log(_values);
-
-
         // This creates a basic Babylon Scene object (non-mesh)
         const scene = new BABYLON.Scene(engine);
-
-        scene.debugLayer.show({
-            handleResize: true,
-            // overlay: true,
-            // embedMode: true,
-            globalRoot: document.getElementById("#root") || undefined,
-        });
-
 
         scene.clearColor = new BABYLON.Color4(0.31, 0.48, 0.64, 1);
 
