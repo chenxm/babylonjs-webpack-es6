@@ -15,7 +15,9 @@ export const getSceneModuleWithName = (
     // name = 'defaultWithTexture'
     // name = 'navigationMeshRecast'
     // name = 'loadModelAndEnv'
-     name = 'physicsWithAmmo'
+    // name = 'physicsWithAmmo'
+    // name = 'testMeshes'
+    name = 'pirate'
 
 ): Promise<CreateSceneClass> => {
     console.log("============ " + logic.Title);
